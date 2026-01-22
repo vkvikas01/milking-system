@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { StaticRouterLinks } from "../utils/StaticRouterLinks";
 
 function Music() {
   const music = useSelector(
@@ -9,6 +11,7 @@ function Music() {
 
   const audioRef = useRef(null);
   const intervalRef = useRef(null);
+  const navigate = useNavigate();
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -59,6 +62,7 @@ function Music() {
     try {
       setIsSaving(true);
       await axios.post(`${API_URL}/sessions`, requestPacket);
+      navigate(StaticRouterLinks.history)
     } catch (error) {
       console.error(
         "Failed to save session:",
