@@ -47,11 +47,11 @@ function Home() {
         {arr.map((val, ind) => (
           <div
             key={ind}
-            className={`${getKeyByValue(musicObj,music) == ind && "!opacity-25"} flex justify-center items-center h-[200px] w-[200px] bg-black text-white text-lg font-semibold border cursor-pointer`}
+            className={`${getKeyByValue(musicObj,music) === ind?.toString() && "!opacity-25"} flex justify-center items-center h-[200px] w-[200px] bg-black text-white text-lg font-semibold border cursor-pointer`}
             onClick={() => handleMusic(ind)}
           >
          
-          {getKeyByValue(musicObj,music) == ind?"Selected" :` Song ${val}`}
+          {getKeyByValue(musicObj,music) === ind?.toString()?"Selected" :` Song ${val}`}
           </div>
         ))}
       </div>

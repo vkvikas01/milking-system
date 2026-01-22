@@ -19,8 +19,7 @@ function Music() {
   const [milkQuantity, setMilkQuantity] = useState("");
   const [isSaving, setIsSaving] = useState(false);
 
-  const API_URL = "http://localhost:5000/api";
-
+  const API_URL = "https://backend-fv9m.onrender.com/api";
 
   const playMusic = () => {
     audioRef.current.play();
@@ -29,7 +28,7 @@ function Music() {
     if (!startTime) {
       setStartTime(new Date());
     }
-  };
+  }; 
 
   const pauseMusic = () => {
     audioRef.current.pause();
